@@ -1,0 +1,16 @@
+# Node.js
+chatbot-frontend/node_modules/
+chatbot-backend/node_modules/
+npm-debug.log*
+.env
+
+# Logs
+logs
+*.log
+
+# Build output
+dist/
+build/
+
+# VS Code settings
+.vscode/
