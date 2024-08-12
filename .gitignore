@@ -2,7 +2,6 @@
 chatbot-frontend/node_modules/
 chatbot-backend/node_modules/
 npm-debug.log*
-.env
 
 # Logs
 logs
@@ -14,3 +13,6 @@ build/
 
 # VS Code settings
 .vscode/
+
+# Environment Variables
+chatbot-backend/.env

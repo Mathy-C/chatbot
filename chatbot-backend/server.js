@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const { Configuration, OpenAIApi } = require('openai');
 const app = express();
@@ -7,7 +8,7 @@ app.use(express.json());
 const PORT = 5000;
 
 const configuration = new Configuration({
-  apiKey: 'OPENAI_API_KEY_PLACEHOLDER',
+  apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
