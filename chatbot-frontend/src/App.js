@@ -49,6 +49,40 @@ function App() {
     }
   };
 
+  const handleVoiceInput = () => {
+    if (!('webkitSpeechRecognition' in window)) {
+      alert("Your browser does not support speech recognition. Try using Google Chrome.");
+      return;
+    }
+
+    const recognition = new window.webkitSpeechRecognition();
+
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-US';
+
+    recognition.onstart = () => {
+      console.log("Voice recognition started. Speak into the microphone.");
+    };
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      console.log("You said: " + transcript);
+      setUserInput(transcript);
+      handleSend();
+    };
+
+    recognition.onerror = (event) => {
+      console.error("Error occurred in recognition: " + event.error);
+    };
+
+    recognition.onend = () => {
+      console.log("Voice recognition ended.");
+    };
+
+    recognition.start();
+  };
+
   return (
     <div className="App">
       <div className="chat-container">
@@ -66,7 +100,10 @@ function App() {
           placeholder="Type a message..." 
           onKeyPress={handleKeyPress}
         />
-        <button onClick={handleSend}>Send</button>
+        <div className="button-container">
+          <button onClick={handleSend}>Send</button>
+          <button onClick={handleVoiceInput}>🎤 Speak</button>
+        </div>
       </div>
     </div>
   );
