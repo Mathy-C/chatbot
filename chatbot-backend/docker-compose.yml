@@ -1,0 +1,12 @@
+version: '3'
+services:
+  chatbot-backend:
+    image: chatbot-backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    container_name: chatbot-backend-container
+    environment:
+      NODE_ENV: production
