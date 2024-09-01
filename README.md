@@ -1,3 +1,12 @@
+How to run the project (locally)
+
+1. Run 'npm install' in the chatbot-frontend folder
+2. Run 'npm install' in the chatbot-backend folder
+3. Run 'npm start' in the chatbot-frontend folder
+4. Run 'docker compose up --build' in the chatbot-backend folder
+
+### Auto-generated
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
